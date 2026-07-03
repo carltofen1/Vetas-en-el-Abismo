@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://clm6stpdvcpxy"]
+
+[ext_resource type="Texture2D" uid="uid://rirk2q6yjlft" path="res://assets/art/UI/Bandera roja.png" id="1_7dwpw"]
+
+[node name="bandera roja" type="Sprite2D" unique_id=737415878]
+
+[node name="BanderaRoja" type="Sprite2D" parent="." unique_id=2008479286]
+scale = Vector2(0.090297714, 0.08833332)
+texture = ExtResource("1_7dwpw")

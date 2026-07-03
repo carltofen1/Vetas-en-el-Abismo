@@ -1,0 +1,90 @@
+INFORME TÉCNICO: DISEÑO INTEGRAL DE UN VIDEOJUEGO
+
+Proyecto: Vetas Abismales (Abyssal Veins)
+Versión: 6.0 (Ajuste de Mapas y Remoción de PvE)
+
+
+CAPÍTULO 1: INTRODUCCIÓN
+El presente informe técnico detalla el diseño, arquitectura e implementación del videojuego "Vetas Abismales", un título de acción táctica 2v2. El proyecto abarca desde la concepción del Game Design Document (GDD) hasta la integración de sistemas complejos como Inteligencia Artificial mediante Máquinas de Estados Finitos (FSM), persistencia de datos en la nube y optimización de rendimiento en motores gráficos, cumpliendo con los estándares de la industria del desarrollo de software de entretenimiento.
+
+CAPÍTULO 2: INVESTIGACIÓN DEL MERCADO
+El diseño de "Vetas Abismales" nace de un análisis competitivo de los siguientes referentes de la industria:
+Super Smash Bros. Ultimate: Fortaleza: Sistema de combate por porcentaje de daño y física de knockback altamente pulido. Debilidad: Dependencia de Ring-Outs (expulsiones del mapa) que puede generar frustración en mapas cerrados. Nuestro juego adapta el knockback pero limita la muerte al 100% estricto in-bounds.
+Brawlhalla: Fortaleza: Accesibilidad 2D y multijugador ágil. Debilidad: Poca profundidad táctica en la gestión del mapa. Nosotros innovamos añadiendo dominación territorial ("Rey de la Colina") y gestión económica de minerales.
+TowerFall Ascension: Fortaleza: Combate 2D frenético y posicionamiento vertical. Debilidad: Muerte por un solo golpe que depende del azar o reflejos puros. Nuestro sistema requiere daño acumulativo para premiar la consistencia (Skill-based).
+
+CAPÍTULO 3: CONCEPTO DEL VIDEOJUEGO
+Nombre: Vetas Abismales (Abyssal Veins)
+Género: Plataformero de Acción Táctica 2v2 (Brawler de Control Territorial).
+Público Objetivo (Target): Jugadores competitivos (Hardcore / Mid-core) de 15 a 25 años, afines a los eSports y juegos de habilidad mecánica.
+Plataforma: PC (Desarrollado en Godot 4).
+
+CAPÍTULO 4: HISTORIA Y NARRATIVA
+Lore: En un mundo sumido en la oscuridad, la única fuente de energía son los "Minerales Espectrales" que yacen en las entrañas de la tierra. Los jugadores controlan a los Especialistas, mercenarios contratados por corporaciones rivales para descender a las minas, extraer recursos y sabotear a la competencia.
+
+CAPÍTULO 5: DOCUMENTO DE DISEÑO DEL JUEGO (GDD)
+Mecánicas Principales
+Combate In-Bounds (0% - 100%): Los ataques generan daño porcentual. A mayor daño, el jugador sufre mayor empuje (knockback), perdiendo el control de la zona. La muerte ocurre solo al alcanzar el 100%, dropeando el 50% de los minerales recolectados.
+Progreso de Habilidades: No existen "Ultimates". El crafteo evoluciona las habilidades base (pasiva, movilidad, ataque).
+Economía: Recolección de minerales (Nivel 1 a 3) y gestión en base mediante la "Palanca de Confianza" (modo compartido o dividido).
+Reglas y Objetivos
+El mapa tiene 4 pisos. Los jugadores no pueden saltar libremente entre ellos; deben usar Lanzaderas (embudos verticales). El objetivo es dominar (estilo Rey de la Colina) los pisos. Gana el equipo que controle los 4 pisos simultáneamente o el que tenga más tiempo de ocupación al acabar el reloj. En caso de empate, deciden las kills.
+
+CAPÍTULO 6: DISEÑO DE PERSONAJES
+Tipo: Protagonistas
+Nombre / Entidad: Los 8 Especialistas
+Descripción y Comportamiento: Mercenarios sin clases restrictivas. Diferenciación visual y variaciones en la ejecución de los ataques base (Ej. mayor rango vs. mayor velocidad de impacto).
+
+Tipo: NPC
+Nombre / Entidad: [POR DEFINIR]
+Descripción y Comportamiento: [Espacio reservado para definir la entidad NPC que cumplirá los requisitos de IA sin intervenir en el combate PvP].
+
+CAPÍTULO 7: DISEÑO DE MAPAS
+El juego escala en complejidad vertical, presentando tres mapas con dinámicas únicas:
+Mapa 1: La Veta Superficial. Mapa introductorio. 4 pisos paralelos con amplia visibilidad, ideal para aprender las mecánicas de captura y el uso de la Palanca de Confianza.
+Mapa 2: Estrato de Cristal. Introduce la mecánica de "Niebla de Guerra" densa. Visibilidad de 180°. Se implementan los Cristales de Piso, que permiten espiar el piso inferior de forma individual.
+Mapa 3: El Núcleo Abismal. Mapa competitivo. Las distancias horizontales (10s de cruce) son más largas y las Lanzaderas están ubicadas en posiciones tácticas vulnerables, aumentando el peso de la "Regla de los 33s" al morir.
+
+CAPÍTULO 8: PROTOTIPOS EN FIGMA
+[NOTA PARA EL EQUIPO: Insertar aquí la URL pública de Figma y las capturas de pantalla de las 10 pantallas obligatorias (Splash, Pausa, Menú, Configuración, Selección, Inventario, HUD, Victoria, Derrota, Créditos). Justificar el uso de Auto Layout y la paleta de colores oscura con acentos luminiscentes (azul/verde mineral).]
+
+CAPÍTULO 9: DIAGRAMAS EN DRAW.IO
+[NOTA PARA EL EQUIPO: Insertar aquí las imágenes exportadas de los 6 diagramas técnicos (Casos de Uso, Actividades, Estados del Jugador, Arquitectura del Sistema, Modelo Entidad-Relación y Flujo de Pantallas). Explicar brevemente cada uno.]
+
+CAPÍTULO 10: PERSISTENCIA DE DATOS
+El juego utiliza una arquitectura en la nube (ej. AWS Serverless) con una base de datos relacional (AuroraDB) para la persistencia. Se almacena:
+Perfiles de Usuario: Credenciales, Win-Rate, K/D Ratio, y tiempo total de dominación.
+Logs de Partida: Registro de las partidas jugadas, minerales recolectados y habilidades crafteadas.
+
+CAPÍTULO 11: INTELIGENCIA ARTIFICIAL (IA PARA NPCs)
+[NOTA PARA EL EQUIPO: Pendiente definir la entidad NPC que utilizará la Máquina de Estados Finitos (FSM) para patrullar, perseguir, atacar y huir, sin romper el ecosistema PvP puro del juego.]
+
+CAPÍTULO 12: OPTIMIZACIÓN
+Para mantener un rendimiento competitivo a 60 FPS, se aplican las siguientes técnicas:
+Object Pooling: Instanciación previa de proyectiles y entidades de minerales para evitar caídas de framerate causadas por el Garbage Collector de Godot.
+Batching: Agrupamiento de sprites y texturas del entorno (ej. pisos de caverna) que comparten el mismo material para reducir las llamadas de dibujado (Draw Calls).
+Occlusion Culling (Lógica 2D): Optimización de la Niebla de Guerra, desactivando el renderizado de partículas y entidades que están detrás del jugador o en pisos sin visión directa.
+
+CAPÍTULO 13: AUDIO
+El diseño sonoro espacial es vital debido a la visibilidad limitada. Se utiliza Audio 2D/3D dinámico: los pasos del enemigo en pisos superiores tienen un filtro paso bajo (Low-pass filter) para indicar verticalidad. Se incluyen SFX distintivos para el sonido de impacto (escala según el % de daño), crafteo en la base y captura de zonas.
+
+CAPÍTULO 14: EFECTOS VISUALES (VFX)
+El apartado visual se fortalece con:
+Sistemas de Partículas: Emisión luminiscente de los minerales (colores según el nivel: N1, N2, N3) y chispas al golpear a un rival.
+Shaders Personalizados: Implementación de shaders para la niebla de guerra reactiva a los cristales de piso, y shaders de distorsión para los ataques potenciados.
+
+CAPÍTULO 15: PLANIFICACIÓN
+[NOTA PARA EL EQUIPO: Inserte aquí la captura del Diagrama de Gantt mostrando las fases de Pre-producción, Prototipado, Desarrollo Core, UI/UX, Backend, Pruebas y Lanzamiento.]
+
+CAPÍTULO 16: CONCLUSIONES
+La arquitectura por capas y el uso del patrón Object Pooling garantizan que el juego mantenga el rendimiento estricto que requiere un brawler competitivo.
+La mecánica de porcentaje de daño combinada con el knockback scaling in-bounds aporta una innovación táctica al género de plataformas 2D.
+El diseño de la topología P2P para la partida en conjunción con una base de datos Serverless para los perfiles es el modelo más costo-eficiente para un estudio indie.
+El flujo UI/UX fue validado iterativamente para que la lectura de la economía (Palanca de Confianza, Inventario) no interfiera con el ciclo de combate.
+
+=== NOTAS DE IMPLEMENTACIÓN ===
+- Jugador 1 (ID red: Host/1): Equipo ROJO
+- Jugador 2 (ID red: segundo conectado): Equipo ROJO
+- Jugador 3 (ID red: tercero conectado): Equipo AZUL
+- Jugador 4 (ID red: cuarto conectado): Equipo AZUL
+- Todos usan el mismo asset visual (personaje.png) con modulación de color por equipo.

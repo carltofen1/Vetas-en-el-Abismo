@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/gameplay/mineral.gd" id="1_kad4y"]
+[ext_resource type="Texture2D" uid="uid://dt7swu5pekebn" path="res://assets/art/Items/mineral_azul.png" id="2_1in7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_068lk"]
+
+[node name="Mineral" type="Area2D" unique_id=1966521571]
+script = ExtResource("1_kad4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1154258205]
+scale = Vector2(0.08741911, 0.068708465)
+texture = ExtResource("2_1in7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=331375104]
+scale = Vector2(1.4264176, 1.0655398)
+shape = SubResource("RectangleShape2D_068lk")

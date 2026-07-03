@@ -1,0 +1,104 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/network/lobby.gd" id="1_37cpi"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_37cpi")
+
+[node name="Fondo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 100.0
+offset_right = 1460.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 80
+text = "Sala de Espera"
+horizontal_alignment = 1
+
+[node name="IPLocalLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 220.0
+offset_right = 1460.0
+offset_bottom = 280.0
+theme_override_font_sizes/font_size = 36
+text = "Tu IP (LAN): ..."
+horizontal_alignment = 1
+modulate = Color(0.6, 0.8, 1.0, 1)
+
+[node name="BtnHost" type="Button" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 350.0
+offset_right = 910.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 36
+text = "Crear Sala"
+
+[node name="IPInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 450.0
+offset_right = 1060.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 36
+placeholder_text = "IP del host (ej: 192.168.1.5)"
+text = ""
+
+[node name="BtnJoin" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1110.0
+offset_top = 450.0
+offset_right = 1360.0
+offset_bottom = 530.0
+theme_override_font_sizes/font_size = 36
+text = "Unirse"
+
+[node name="BtnStart" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1010.0
+offset_top = 350.0
+offset_right = 1360.0
+offset_bottom = 430.0
+theme_override_font_sizes/font_size = 36
+text = "Forzar Inicio"
+
+[node name="EstadoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 580.0
+offset_right = 1460.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 36
+text = ""
+horizontal_alignment = 1
+modulate = Color(0.9, 0.9, 0.5, 1)
+
+[node name="JugadoresLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 680.0
+offset_right = 1460.0
+offset_bottom = 1000.0
+theme_override_font_sizes/font_size = 40
+text = "Esperando conexion..."
+
+[connection signal="pressed" from="BtnHost" to="." method="_on_btn_host_pressed"]
+[connection signal="pressed" from="BtnJoin" to="." method="_on_btn_join_pressed"]
+[connection signal="pressed" from="BtnStart" to="." method="_on_btn_start_pressed"]

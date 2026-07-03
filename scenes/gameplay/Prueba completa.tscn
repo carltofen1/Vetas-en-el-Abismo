@@ -1,0 +1,68 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/gameplay/personaje.tscn" id="1_0qkvj"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/prueba_de_suelo.tscn" id="2_u4h5d"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/bandera_azul.tscn" id="3_frceo"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/bandera_roja.tscn" id="4_m52qf"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/Elevador.tscn" id="5_m52qf"]
+
+[node name="Node2D" type="Node2D" unique_id=2042041339]
+
+[node name="Personaje" parent="." unique_id=2123464945 instance=ExtResource("1_0qkvj")]
+position = Vector2(1676, 20)
+scale = Vector2(0.1593281, 0.18238921)
+
+[node name="Prueba de suelo" parent="." unique_id=702743689 instance=ExtResource("2_u4h5d")]
+position = Vector2(959, 103)
+scale = Vector2(1.4065146, 1)
+
+[node name="Prueba de suelo2" parent="." unique_id=1137137685 instance=ExtResource("2_u4h5d")]
+position = Vector2(954, 424)
+scale = Vector2(1.4078624, 1)
+
+[node name="Prueba de suelo3" parent="." unique_id=198468268 instance=ExtResource("2_u4h5d")]
+position = Vector2(953, 746)
+scale = Vector2(1.3999995, 1)
+
+[node name="Prueba de suelo4" parent="." unique_id=343244884 instance=ExtResource("2_u4h5d")]
+position = Vector2(951, 1060)
+scale = Vector2(1.4000018, 1)
+
+[node name="Bandera Azul" parent="." unique_id=786004962 instance=ExtResource("3_frceo")]
+position = Vector2(960, 81)
+
+[node name="Bandera Azul2" parent="." unique_id=236465801 instance=ExtResource("3_frceo")]
+position = Vector2(954, 401)
+
+[node name="bandera roja" parent="." unique_id=737415878 instance=ExtResource("4_m52qf")]
+position = Vector2(955, 724)
+
+[node name="bandera roja2" parent="." unique_id=1156963231 instance=ExtResource("4_m52qf")]
+position = Vector2(952, 1037)
+
+[node name="CharacterBody2D2" parent="." unique_id=1785018532 instance=ExtResource("5_m52qf")]
+position = Vector2(112.00001, 9)
+scale = Vector2(-0.1862962, 0.8)
+
+[node name="CharacterBody2D3" parent="." unique_id=1354843691 instance=ExtResource("5_m52qf")]
+position = Vector2(1806.9999, 334)
+scale = Vector2(-0.1862962, 0.8)
+
+[node name="CharacterBody2D4" parent="." unique_id=1159219283 instance=ExtResource("5_m52qf")]
+position = Vector2(1808.9999, 652)
+scale = Vector2(-0.1862962, 0.8)
+
+[node name="CharacterBody2D5" parent="." unique_id=309247703 instance=ExtResource("5_m52qf")]
+position = Vector2(113, 330)
+rotation = -3.1342177
+scale = Vector2(-0.1862962, 0.8)
+
+[node name="CharacterBody2D6" parent="." unique_id=631896719 instance=ExtResource("5_m52qf")]
+position = Vector2(114, 661)
+rotation = -3.1342177
+scale = Vector2(-0.1862962, 0.8)
+
+[node name="CharacterBody2D7" parent="." unique_id=514831565 instance=ExtResource("5_m52qf")]
+position = Vector2(1807.9999, 972.99994)
+rotation = -3.1342177
+scale = Vector2(-0.1862962, 0.8)

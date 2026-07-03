@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c7utc73k7w5jk"]
+
+[ext_resource type="Script" uid="uid://wwkpkd8slyof" path="res://scenes/UI/Main_menu.gd" id="1_qwnig"]
+
+[node name="MainMenu" type="Control" unique_id=2049368736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwnig")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1099132854]
+layout_mode = 0
+offset_left = 941.0
+offset_top = 508.0
+offset_right = 981.0
+offset_bottom = 548.0
+
+[node name="HostButton" type="Button" parent="VBoxContainer" unique_id=969829447]
+layout_mode = 2
+text = "Crear Partida"
+
+[node name="JoinButton" type="Button" parent="VBoxContainer" unique_id=1653612534]
+layout_mode = 2
+text = "Unirse a Partida"

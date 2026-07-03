@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/gameplay/bandera.gd" id="1_34aah"]
+[ext_resource type="Texture2D" uid="uid://ckq2bwhwdit5" path="res://assets/art/UI/Bandera azul.png" id="1_b4j0g"]
+[ext_resource type="Texture2D" uid="uid://rirk2q6yjlft" path="res://assets/art/UI/Bandera roja.png" id="2_uqcxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34aah"]
+size = Vector2(80, 160)
+
+[node name="Bandera" type="Area2D" unique_id=899815826 groups=["Banderas"]]
+script = ExtResource("1_34aah")
+imagen_roja = ExtResource("2_uqcxj")
+imagen_azul = ExtResource("1_b4j0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=659585063]
+position = Vector2(0, -80)
+shape = SubResource("RectangleShape2D_34aah")
+
+[node name="BanderaSprite" type="Sprite2D" parent="." unique_id=940989645]
+position = Vector2(0, -80)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_b4j0g")

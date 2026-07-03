@@ -1,0 +1,190 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/UI/hud.gd" id="1_c4vmg"]
+
+[node name="HUD" type="CanvasLayer" unique_id=5107790]
+script = ExtResource("1_c4vmg")
+
+[node name="Interface" type="Control" parent="." unique_id=1408167803]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="Interface" unique_id=1013129507]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 600.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 32
+min_value = 0.0
+max_value = 100.0
+value = 0.0
+show_percentage = false
+
+[node name="PorcentajeLabel" type="Label" parent="Interface"]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 20.0
+offset_right = 800.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 48
+text = "0%"
+
+[node name="InventoryLabel" type="Label" parent="Interface" unique_id=35188260]
+layout_mode = 0
+offset_left = 1500.0
+offset_top = 20.0
+offset_right = 1880.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 40
+text = "Minerales: 0 / 10"
+
+[node name="TimeLabel" type="Label" parent="Interface" unique_id=919741795]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 20.0
+offset_right = 1060.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "10:00"
+horizontal_alignment = 1
+
+[node name="PisosLabel" type="Label" parent="Interface"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 100.0
+offset_right = 1160.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 32
+text = "Pisos: ROJO 0 | AZUL 0"
+horizontal_alignment = 1
+
+[node name="EquipoLabel" type="Label" parent="Interface"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = 400.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 32
+text = "Equipo: ---"
+
+[node name="KillsLabel" type="Label" parent="Interface"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 160.0
+offset_right = 400.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 28
+text = ""
+
+[node name="CraftMenu" type="Panel" parent="." unique_id=1720891628]
+visible = false
+offset_left = 460.0
+offset_top = 100.0
+offset_right = 1460.0
+offset_bottom = 900.0
+
+[node name="TituloTienda" type="Label" parent="CraftMenu"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 20.0
+offset_right = 1000.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 64
+text = "Tienda de Crafteo"
+horizontal_alignment = 1
+
+[node name="BotonBotas" type="Button" parent="CraftMenu" unique_id=1617093764]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 900.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 32
+text = "Botas Rapidas (+150 vel) - Costo: 5"
+
+[node name="BotonGuantes" type="Button" parent="CraftMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 260.0
+offset_right = 900.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 32
+text = "Guantes de Poder (+5% dano) - Costo: 7"
+
+[node name="BotonCasco" type="Button" parent="CraftMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 370.0
+offset_right = 900.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 32
+text = "Casco Resistencia (-20% KB) - Costo: 6"
+
+[node name="BotonDash" type="Button" parent="CraftMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 480.0
+offset_right = 900.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 32
+text = "Dash Mejorado (+0.1s) - Costo: 4"
+
+[node name="BotonSalto" type="Button" parent="CraftMenu"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 590.0
+offset_right = 900.0
+offset_bottom = 670.0
+theme_override_font_sizes/font_size = 32
+text = "Salto Extra (+1 salto) - Costo: 8"
+
+[node name="CerrarTienda" type="Label" parent="CraftMenu"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 720.0
+offset_right = 1000.0
+offset_bottom = 780.0
+theme_override_font_sizes/font_size = 32
+text = "Presiona E para cerrar"
+horizontal_alignment = 1
+modulate = Color(0.7, 0.7, 0.7, 1)
+
+[node name="ResultadoPanel" type="Panel" parent="."]
+visible = false
+offset_left = 460.0
+offset_top = 100.0
+offset_right = 1460.0
+offset_bottom = 900.0
+
+[node name="TituloLabel" type="Label" parent="ResultadoPanel"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 20.0
+offset_right = 1000.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 80
+text = "RESULTADO"
+horizontal_alignment = 1
+
+[node name="DetalleLabel" type="Label" parent="ResultadoPanel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 900.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 40
+text = ""
+
+[node name="BotonMenu" type="Button" parent="ResultadoPanel"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 700.0
+offset_right = 750.0
+offset_bottom = 800.0
+theme_override_font_sizes/font_size = 40
+text = "Volver al Menu"

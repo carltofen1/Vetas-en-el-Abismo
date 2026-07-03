@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dwrexnlaclt0c"]
+
+[ext_resource type="Texture2D" uid="uid://ckq2bwhwdit5" path="res://assets/art/UI/Bandera azul.png" id="1_q2exp"]
+
+[node name="Bandera Azul" type="Sprite2D" unique_id=786004962]
+
+[node name="BanderaAzul" type="Sprite2D" parent="." unique_id=719080230]
+scale = Vector2(0.080427155, 0.088253915)
+texture = ExtResource("1_q2exp")

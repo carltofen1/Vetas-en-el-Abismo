@@ -1,0 +1,25 @@
+DOCUMENTO DE CORRECCIONES VISUALES Y DE PROPORCIONES (Versión 1)
+------------------------------------------------------------------
+Este documento enumera los ajustes realizados en respuesta a las observaciones de proporciones, tamaños y colisiones.
+
+1. PROPORCIÓN DEL PERSONAJE:
+   - Se ajustó la escala del Sprite2D del personaje de (0.36, 0.40) a (0.15, 0.15) para tener un tamaño acorde al entorno y los pisos.
+   - Se eliminó la escala negativa (-7.12, -6.93) del CollisionShape2D del personaje, ya que esto causaba errores físicos en Godot.
+   - Se definió un tamaño específico para la cápsula de colisión del personaje (radio 30, altura 80) para que su hitbox no sea tosca y permita un movimiento suave.
+
+2. CÁMARA Y TAMAÑO DE PANTALLA (MENÚ Y GENERAL):
+   - Se añadió un zoom de (1.5, 1.5) a la Camera2D del personaje para que el nivel no se vea minúsculo y alejado.
+   - Se corrigió el escalado de ventana en `project.godot` añadiendo `window/stretch/aspect="keep"`. Esto evita que la cámara y los menús se deformen o se vean "aplastados" al maximizar o cambiar la resolución, respetando la relación de aspecto original (1920x1080).
+
+3. CORRECCIÓN DE BANDERAS:
+   - El CollisionShape2D de las banderas estaba sobredimensionado a una escala brutal (casi 400x490 píxeles). Se reajustó la zona de colisión a (80x160), alineada al suelo.
+   - El sprite de las banderas ahora cuenta con una escala de (0.2, 0.2) y su offset en Y se ajustó para que la base del mástil esté apoyada en la plataforma, viéndose alineada correctamente.
+
+4. PLATAFORMAS DE SALTO Y COLISIONES DE TECHO:
+   - Se activó la propiedad `one_way_collision = true` en todos los pisos (Piso1, Piso2, Piso3, Piso4) del escenario base. 
+   - Gracias a este cambio, al utilizar la plataforma de salto (lanzadera), el jugador ya no se estrella contra el "techo" de la plataforma superior, sino que la atraviesa limpiamente desde abajo y aterriza sobre ella.
+
+5. AJUSTE DE HITBOX DE ATAQUE:
+   - Se eliminó la escala de la HitboxAtaque del personaje, la cual era irregular, y se le asignó un tamaño fijo de (60, 80) píxeles posicionado al frente del personaje, haciendo el combate mucho más preciso.
+
+Todas estas correcciones se implementaron sin dejar rastros de comentarios extraños, garantizando un acabado profesional en el código y en las configuraciones de las escenas (archivos .tscn y project.godot).

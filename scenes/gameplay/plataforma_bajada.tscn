@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c7x2q2vh3qw7n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2bxq"]
+
+[node name="PlataformaBajada" type="StaticBody2D" unique_id=621713954]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=310791353]
+modulate = Color(0.16, 0.16, 0.16, 1)
+scale = Vector2(1.3877469, 0.77496684)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1997864943]
+scale = Vector2(4.9440217, 1.1726278)
+shape = SubResource("RectangleShape2D_a2bxq")
+one_way_collision = true

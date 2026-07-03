@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cxxk61fnojv5x"]
+
+[ext_resource type="Texture2D" uid="uid://ceygboh2b4jp4" path="res://assets/art/characters/personaje.png" id="1_lrjsm"]
+[ext_resource type="Script" uid="uid://mv08df0vn2sm" path="res://scripts/Gameplay/movimiento de personaje.gd" id="1_p7p3m"]
+[ext_resource type="PackedScene" uid="uid://dmk0l2xfu52w8" path="res://scenes/UI/hud.tscn" id="3_fc1jd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7p3m"]
+radius = 30.0
+height = 80.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_p7p3m"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Sprite2D:flip_h")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc1jd"]
+size = Vector2(60, 80)
+
+[node name="Personaje" type="CharacterBody2D" unique_id=2123464945]
+script = ExtResource("1_p7p3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=394212921]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_lrjsm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=511775926]
+zoom = Vector2(1.5, 1.5)
+limit_left = -300
+limit_top = -300
+limit_right = 2220
+limit_bottom = 1200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=337729078]
+shape = SubResource("CapsuleShape2D_p7p3m")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1219254252]
+replication_config = SubResource("SceneReplicationConfig_p7p3m")
+
+[node name="HUD" parent="." unique_id=5107790 instance=ExtResource("3_fc1jd")]
+
+[node name="HitboxAtaque" type="Area2D" parent="." unique_id=1998635407]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxAtaque" unique_id=1224108850]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_fc1jd")

@@ -1,0 +1,229 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/gameplay/game_scene.gd" id="1_7714j"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/bandera.tscn" id="2_bandera"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/generador_minerales.tscn" id="3_genmin"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/lanzadera.tscn" id="4_lanzadera"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/zona_base.tscn" id="5_zonabase"]
+
+[sub_resource type="RectangleShape2D" id="piso_shape"]
+size = Vector2(1920, 20)
+
+[sub_resource type="RectangleShape2D" id="pared_shape"]
+size = Vector2(20, 1100)
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_7714j")
+
+[node name="Fondo" type="ColorRect" parent="."]
+offset_left = 0.0
+offset_top = -100.0
+offset_right = 1920.0
+offset_bottom = 1000.0
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://cxxk61fnojv5x")
+spawn_path = NodePath("..")
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 600.0
+one_shot = true
+
+[node name="Pisos" type="Node2D" parent="."]
+
+[node name="Piso1" type="StaticBody2D" parent="Pisos"]
+position = Vector2(960, 860)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pisos/Piso1"]
+shape = SubResource("piso_shape")
+one_way_collision = true
+
+[node name="Visual" type="ColorRect" parent="Pisos/Piso1"]
+offset_left = -960.0
+offset_top = -10.0
+offset_right = 960.0
+offset_bottom = 10.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Piso2" type="StaticBody2D" parent="Pisos"]
+position = Vector2(960, 590)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pisos/Piso2"]
+shape = SubResource("piso_shape")
+one_way_collision = true
+
+[node name="Visual" type="ColorRect" parent="Pisos/Piso2"]
+offset_left = -960.0
+offset_top = -10.0
+offset_right = 960.0
+offset_bottom = 10.0
+color = Color(0.25, 0.25, 0.25, 1)
+
+[node name="Piso3" type="StaticBody2D" parent="Pisos"]
+position = Vector2(960, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pisos/Piso3"]
+shape = SubResource("piso_shape")
+one_way_collision = true
+
+[node name="Visual" type="ColorRect" parent="Pisos/Piso3"]
+offset_left = -960.0
+offset_top = -10.0
+offset_right = 960.0
+offset_bottom = 10.0
+color = Color(0.3, 0.3, 0.3, 1)
+
+[node name="Piso4" type="StaticBody2D" parent="Pisos"]
+position = Vector2(960, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pisos/Piso4"]
+shape = SubResource("piso_shape")
+one_way_collision = true
+
+[node name="Visual" type="ColorRect" parent="Pisos/Piso4"]
+offset_left = -960.0
+offset_top = -10.0
+offset_right = 960.0
+offset_bottom = 10.0
+color = Color(0.35, 0.35, 0.35, 1)
+
+[node name="Paredes" type="Node2D" parent="."]
+
+[node name="ParedIzq" type="StaticBody2D" parent="Paredes"]
+position = Vector2(-10, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedIzq"]
+shape = SubResource("pared_shape")
+
+[node name="ParedDer" type="StaticBody2D" parent="Paredes"]
+position = Vector2(1930, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes/ParedDer"]
+shape = SubResource("pared_shape")
+
+[node name="Territorios" type="Node2D" parent="."]
+
+[node name="BanderaPiso1" parent="Territorios" instance=ExtResource("2_bandera")]
+position = Vector2(960, 860)
+piso_id = 0
+equipo_inicial = 0
+
+[node name="BanderaPiso2" parent="Territorios" instance=ExtResource("2_bandera")]
+position = Vector2(960, 590)
+piso_id = 1
+equipo_inicial = 0
+
+[node name="BanderaPiso3" parent="Territorios" instance=ExtResource("2_bandera")]
+position = Vector2(960, 320)
+piso_id = 2
+equipo_inicial = 0
+
+[node name="BanderaPiso4" parent="Territorios" instance=ExtResource("2_bandera")]
+position = Vector2(960, 50)
+piso_id = 3
+equipo_inicial = 0
+
+[node name="Lanzaderas" type="Node2D" parent="."]
+
+[node name="Lanzadera1a2_Izq_Azul" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(50, 860)
+equipo_permitido = 2
+
+[node name="Lanzadera1a2_Der_Rojo" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(1870, 860)
+equipo_permitido = 1
+
+[node name="Lanzadera2a3_Izq_Rojo" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(50, 590)
+equipo_permitido = 1
+
+[node name="Lanzadera2a3_Der_Azul" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(1870, 590)
+equipo_permitido = 2
+
+[node name="Lanzadera3a4_Izq_Azul" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(50, 320)
+equipo_permitido = 2
+
+[node name="Lanzadera3a4_Der_Rojo" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(1870, 320)
+equipo_permitido = 1
+
+[node name="LanzaderaBaja4a3_Izq_Rojo" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(150, 50)
+es_subida = false
+equipo_permitido = 1
+
+[node name="LanzaderaBaja4a3_Der_Azul" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(1770, 50)
+es_subida = false
+equipo_permitido = 2
+
+[node name="LanzaderaBaja3a2_Izq_Azul" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(150, 320)
+es_subida = false
+equipo_permitido = 2
+
+[node name="LanzaderaBaja3a2_Der_Rojo" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(1770, 320)
+es_subida = false
+equipo_permitido = 1
+
+[node name="LanzaderaBaja2a1_Izq_Rojo" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(150, 590)
+es_subida = false
+equipo_permitido = 1
+
+[node name="LanzaderaBaja2a1_Der_Azul" parent="Lanzaderas" instance=ExtResource("4_lanzadera")]
+position = Vector2(1770, 590)
+es_subida = false
+equipo_permitido = 2
+
+[node name="BasesDeEquipos" type="Node2D" parent="."]
+
+[node name="BaseRojo" parent="BasesDeEquipos" instance=ExtResource("5_zonabase")]
+position = Vector2(150, 860)
+
+[node name="BaseAzul" parent="BasesDeEquipos" instance=ExtResource("5_zonabase")]
+position = Vector2(1770, 860)
+
+[node name="Generadores" type="Node2D" parent="."]
+
+[node name="GenT1_Piso1" parent="Generadores" instance=ExtResource("3_genmin")]
+position = Vector2(500, 860)
+tier = 1
+
+[node name="GenT1_Piso1b" parent="Generadores" instance=ExtResource("3_genmin")]
+position = Vector2(1420, 860)
+tier = 1
+
+[node name="GenT1_Piso2" parent="Generadores" instance=ExtResource("3_genmin")]
+position = Vector2(600, 590)
+tier = 1
+
+[node name="GenT1_Piso2b" parent="Generadores" instance=ExtResource("3_genmin")]
+position = Vector2(1320, 590)
+tier = 1
+
+[node name="GenT2_Piso3" parent="Generadores" instance=ExtResource("3_genmin")]
+position = Vector2(960, 320)
+tier = 2
+
+[node name="GenT3_Piso4" parent="Generadores" instance=ExtResource("3_genmin")]
+position = Vector2(960, 50)
+tier = 3
+
+[node name="PuntosDeSpawn" type="Node2D" parent="."]
+
+[node name="SpawnRojo1" type="Marker2D" parent="PuntosDeSpawn"]
+position = Vector2(200, 800)
+
+[node name="SpawnRojo2" type="Marker2D" parent="PuntosDeSpawn"]
+position = Vector2(300, 800)
+
+[node name="SpawnAzul1" type="Marker2D" parent="PuntosDeSpawn"]
+position = Vector2(1620, 800)
+
+[node name="SpawnAzul2" type="Marker2D" parent="PuntosDeSpawn"]
+position = Vector2(1720, 800)

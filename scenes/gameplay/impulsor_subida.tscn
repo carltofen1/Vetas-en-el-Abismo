@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/gameplay/impulsor_subida.gd" id="1_6u47j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_551vi"]
+
+[node name="ImpulsorSubida" type="Area2D" unique_id=1971710691]
+script = ExtResource("1_6u47j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1992428109]
+scale = Vector2(3.708415, -0.5684541)
+shape = SubResource("RectangleShape2D_551vi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=796923784]

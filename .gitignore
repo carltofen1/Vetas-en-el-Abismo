@@ -1,0 +1,38 @@
+# ===========================
+# Godot 4 .gitignore
+# ===========================
+
+# Godot - carpetas generadas automaticamente
+.godot/
+
+# Godot 3 legacy (por si acaso)
+*.translation
+
+# Exportaciones / builds
+exports/
+*.apk
+*.aab
+*.exe
+*.x86_64
+*.dmg
+*.app
+
+# Importaciones (se regeneran al abrir el proyecto)
+*.import
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# JetBrains / VSCode local
+.idea/
+*.iml
+.vscode/launch.json
+
+# Notas locales
+*.local.md
+TODO.local.txt
+
+# Logs
+*.log

@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/gameplay/zona_base.gd" id="1_xdsl6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0rbw"]
+size = Vector2(188, 88)
+
+[node name="ZonaBase" type="Area2D" unique_id=609103819]
+script = ExtResource("1_xdsl6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1113670253]
+scale = Vector2(1.0219195, 0.91030645)
+shape = SubResource("RectangleShape2D_s0rbw")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1005389380]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.1742637, 1)
+color = Color(0.33, 0.11550001, 0, 1)

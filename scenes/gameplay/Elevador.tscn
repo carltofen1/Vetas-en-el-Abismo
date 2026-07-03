@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0r0h1ifnrd64"]
+
+[ext_resource type="Texture2D" uid="uid://kvkf2qhjuqvr" path="res://assets/art/map/Elevador.png" id="1_75xfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5kvv"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1785018532]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1918179506]
+
+[node name="Elevador" type="Sprite2D" parent="." unique_id=564490828]
+position = Vector2(1, 0)
+scale = Vector2(0.76994765, 0.22732863)
+texture = ExtResource("1_75xfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=611108082]
+scale = Vector2(49.360004, 8.639999)
+shape = SubResource("RectangleShape2D_s5kvv")

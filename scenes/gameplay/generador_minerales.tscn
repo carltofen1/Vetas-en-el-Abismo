@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/gameplay/generador_minerales.gd" id="1_bom4n"]
+
+[node name="GeneradorMinerales" type="Node2D" unique_id=279236988]
+script = ExtResource("1_bom4n")
+
+[node name="Timer" type="Timer" parent="." unique_id=1472692968]
+wait_time = 5.0
+autostart = true

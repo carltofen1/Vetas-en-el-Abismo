@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dw2uw4hq7u20x"]
+
+[ext_resource type="Texture2D" uid="uid://ydp8hxol61tf" path="res://assets/art/map/suelo.jpeg" id="1_8g8fk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ncyv"]
+
+[node name="Prueba de suelo" type="StaticBody2D" unique_id=702743689]
+
+[node name="Suelo" type="Sprite2D" parent="." unique_id=2087818512]
+position = Vector2(1.0000001, 71)
+scale = Vector2(-3.9296014, 2.7619703)
+texture = ExtResource("1_8g8fk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1863365796]
+position = Vector2(3, 69.00001)
+scale = Vector2(68.16, 6.920001)
+shape = SubResource("RectangleShape2D_1ncyv")

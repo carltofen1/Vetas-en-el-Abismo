@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/gameplay/resource_spawner.gd" id="1_vakal"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/mineral.tscn" id="2_k5wgf"]
+
+[node name="ResourceSpawner" type="Node2D" unique_id=986572481]
+position = Vector2(-2, 0)
+script = ExtResource("1_vakal")
+mineral_scene = ExtResource("2_k5wgf")
+
+[node name="Timer" type="Timer" parent="." unique_id=731920927]
+wait_time = 3.0
+autostart = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1179267749]
+_spawnable_scenes = PackedStringArray("uid://bgxu0k6xwqddi")
+spawn_path = NodePath("..")
